@@ -13,10 +13,10 @@ function setup() {
 
   // squint your eyes: it's a spreadsheet!
   allCoordinates = [
-    [createVector(10, 10), createVector(20, 20), createVector(30, 30)],
-    [createVector(30, 20), createVector(30, 30), createVector(30, 40)], 
-    [createVector(30, 20), createVector(30, 30), createVector(30, 60), createVector(100,100) ],
-    [createVector(50, 50), createVector(60, 50), createVector(70, 50)],
+    [new Orb(10, 10, color("red")), new Orb(20, 20, color("green")), new Orb(30, 30, color("yellow"))],
+    [new Orb(30, 20, color("red")), new Orb(30, 30, color("green")), new Orb(30, 40, color("yellow"))], 
+    [new Orb(30, 20, color("red")), new Orb(30, 30, color("green")), new Orb(30, 60, color("yellow")), new Orb(100,100, color("purple")) ],
+    [new Orb(50, 50, color("red")), new Orb(60, 50, color("green")), new Orb(70, 50, color("yellow"))],
   ]
 
 }
@@ -27,8 +27,8 @@ function draw() {
   // loop through all of the entries for a given "row" in the "spreadsheet".
   // (which row we're looking at is determined by the variable "stage")
   for (let i = 0; i < allCoordinates[stage].length; i++) {
-    const xy = allCoordinates[stage][i];
-    circle(xy.x, xy.y, 10)
+    const orb = allCoordinates[stage][i];
+    orb.draw()
   }
 
 }
